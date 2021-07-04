@@ -17,16 +17,16 @@ int sequenceSize; // total number of subsequences in input sequence
 Learning Goals:
 1. Understanding of dynamic programming & subset sums
 Requirements:
-1.  Use dynamic programming to determine two separate subsequences of the input 
-        such that the 1st subsequence sums to the 1st target value and the 2nd
-        subsequence sums to the 2nd target value.
-    Input is read from standard input (I'm using shell redirect (<) from a file). 
-    The first line of the input will give n, the length of the sequence, along 
-        with the two target values. Each of the remaining input lines will 
-        include one sequence value. All values will be positive integers.
-    Your program should echo the target values and the input sequence. If a problem instance has a
-        solution, each of the two subsequences should be output and clearly labeled. A message should be
-        provided for instances without a solution.
+1.  Discover two separate subsets of the input using dynamic programming
+        in which the 1st subset sums to the 1st target value and the 2nd
+        subset sums to the 2nd target value.
+    The input file is inputted using a shell redirect (<) from a file. 
+    The input file's first line holds n, the length of the subset, along 
+        with the two target values. The remaining input lines contain one subset 
+        value each. All given values are positive integers.
+    The program prints the target values and the input subset in the output. If a
+        problem instance has a solution, each of the two subsets are outputted. 
+        Else, a message is printed when no solution is found. 
 */
 
 int findTarget(int memoArr[][sequenceSize], int numOfSumValues, int target1, int target2, FILE* fOutPtr)
