@@ -2,6 +2,7 @@
 //    1) Change OUTPUTFILENAME to the appropriate output file (e.g. "lab5a.out")
 //    2) Enter  "gcc -o MST_using_Hashing_&_Kruskals MST_using_Hashing_&_Kruskals.c" 
 //       then "./MST_using_Hashing_&_Kruskals < lab5a.dat" 
+// Code below can be tested with Inputs A, B, C, and D. 
 
 #include <stdio.h>  
 #include <stdlib.h>       	
@@ -14,25 +15,25 @@
 
 /*
 Learning Goals:
-1. Understanding of hashing, graphs, & Krukal’s algorithm.
+1. Understanding of hashing, graphs, & Krukalâ€™s algorithm.
 Requirements:
 1. Design, code, and test a C program to determine a minimum spanning forest for a weighted, directed graph.
    a. Input is to be read from standard input:
       1. The first line is two integer values: n, the number of vertices, and m, the number of edges.
       2. The remaining m lines will each contain three values defining an edge: a tail name (string of no more than 25
-      characters), a head name (another string), and an integer value for the weight of the edge.
+         characters), a head name (another string), and an integer value for the weight of the edge.
    b. While reading the input, new vertex names should be stored in a double hash table along with consecutively assigned
-   vertex numbers. In addition, a table of vertex names to allow printing the name for a vertex number will be needed.
-   If the input does not include n different vertex names, give a warning and continue. If the input has more than n
-   different names, print a warning and stop. Your double hash table should have the smallest prime size 
-   to assure a load factor no larger than 50%. You will need code for a simple function to compute this value.
+      vertex numbers. In addition, a table of vertex names to allow printing the name for a vertex number will be needed.
+      If the input does not include n different vertex names, give a warning and continue. If the input has more than n
+      different names, print a warning and stop. Your double hash table should have the smallest prime size to assure
+      a load factor no larger than 50%. You will need code for a simple function to compute this value.
    c. Sort the edges by ascending weights using any technique.
    d. Initialize the disjoint-subset representation.
-   e. Perform Kruskal’s algorithm; you may overwrite the rejected edges with edges that are kept, but
-   avoid Theta(n^2) implementation. 
-   f. Print the trees in the forest. If the input graph is connected, there will be only one tree in the final result. Otherwise,
-   the edges must be sorted so that the edges in each tree are output together and labeled as such. The edges in each tree 
-   will be printed by their vertex name and in ascending order. 
+   e. Perform Kruskalâ€™s algorithm; you may overwrite the rejected edges with edges that are kept, but avoid 
+      avoid Theta(n^2) implementation. 
+   f. Print the trees in the forest. If the input graph is connected, there will be only one tree in the final result. 
+      Otherwise, the edges must be sorted so that the edges in each tree are output together and labeled as such. 
+      The edges in each tree will be printed by their vertex name and in ascending order. 
 */
 
 int findNumOfCycles(int* minSpanningTree, int vertexNum, char*** edgeTable, int numOfEdges, char** leaderArr, int sizeOfLeaderArr, char* tempStr)
