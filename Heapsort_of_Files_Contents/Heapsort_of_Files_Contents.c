@@ -15,31 +15,30 @@
 Learning Goals:
 1. Understanding of heaps & merging.
 Requirements:
-1. Write a C program to take n files containing strings in ascending order (no duplicates within a file) and produce a file
-out.dat containing a line for each string (in ascending order). Even if a string str appears in multiple files, it will 
-output only once and, for each string, output the number of files (k) containing the string. The program must perform 
-only one “heap assisted” merge of all n files simultaneously; The program must not use multiple binary merges! 
-At any time, there should be no more than one string from each of the input files being processed. 
-2. The program is driven by a file in.dat:
-   a. The first line will contain the value for n.
-   b. Each of the remaining n lines will contain a simple file name, i.e. there will not be a directory path.
-   c. Each of the n files will contain at least one string. The strings will consist of no more than 50 letters and digits.
+1. The C program must read n files where each file contains strings in ascending order (a file has no duplicates) 
+   and generate the file out.dat. This output file has a line for each string (in ascending order) and the number 
+   of files (k) that the string resides in. If a string str resides in more than one file, it will only be 
+   outputted once. The program must perform only one heap-assisted, simultaneous merge of all n files.
+2. The program's input file is in.dat:
+      a. The numerical value for n resides in the first line
+      b. A single filename resides in each of the following n lines
+      c. Each of the n files will have at least one string that is up to 50 characters.
 3. Pseudo-code:
-   a. Open in.dat, each of the n files, and out.dat.
-   b. Prime the heap with the first string from each file. The strings will be the priorities, so you will have a minHeap with
-   the smallest (strcmp()) string conceptually at the root.
-   c. While at least one file has not been exhausted:
-      1. Remove (conceptually) the minimum string from the heap.
-      2. if the minimum string is different from the previous minimum
-            Output . . .
+      a. Open & read in.dat, then each of the n files, and then, finally, out.dat.
+      b. Populate the heap with the first string of each file. Use a minHeap with
+         the smallest strcmp() string at the root, theoretically.
+      c. While at least one file remains to be read:
+         1. Remove, from the heap, the minimum string.
+         2. if the previous minimum is not equal to our new minimum string
+               Print output in the file out.dat
             else
-            Change k
-      3. Attempt to read in another string from the same file as the string just removed.
-            if EOF
-            heap gets smaller
-            else
-            Put string in heap
-   d. Final clean-up . . . including output of the last string
+               Change k
+         3. Try, within the same file, reading the next string.
+               if EOF
+                  Shrink the heap
+               else
+                  Place the string inside the heap
+      d.  Last string is outputted, free any allocated memory, & close files.
 */
 
 typedef struct Nodes 
